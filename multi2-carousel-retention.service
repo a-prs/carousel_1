@@ -1,0 +1,10 @@
+[Unit]
+Description=Carousel Studio retention — delete job files older than 72h (DB history untouched)
+After=network.target
+
+[Service]
+Type=oneshot
+User=office
+WorkingDirectory=/home/office/multi2/apps/carousel-studio/server
+EnvironmentFile=/home/office/multi2/apps/carousel-studio/.env
+ExecStart=/home/office/multi2/apps/carousel-studio/.venv/bin/python retention.py

@@ -1,0 +1,108 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+{% for f in fonts -%}
+@font-face{font-family:'{{ f.family }}';font-style:normal;font-weight:{{ f.weight }};font-display:block;src:url('{{ fonts_dir }}/{{ f.file }}') format('woff2');unicode-range:{{ f.unicode_range }};}
+{% endfor -%}
+:root{
+  --bg:{{ tokens.bg }}; --bg2:{{ tokens.bg2 or tokens.bg }};
+  --tp:{{ tokens.text }}; --ts:{{ tokens.text_faint }}; --tm:{{ tokens.text_secondary }};
+  --gold:{{ tokens.accent }}; --goldD:{{ tokens.accent_text }}; --navy2:{{ tokens.secondary }};
+  --card:rgba(255,255,255,0.045); --bord:rgba(255,255,255,0.13); --bord2:rgba(255,255,255,0.26);
+  --sans:'{{ tokens.font_body }}',sans-serif;
+  --cond:'{{ tokens.font_head_alt }}',sans-serif;
+  --condx:'{{ tokens.font_head }}','{{ tokens.font_head_alt }}',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000}
+/* per-slide overflow-guard hook: render.py steps --fs-scale down on overflow */
+.slide{--fs-scale:1;
+  width:1080px;height:1350px;position:relative;overflow:hidden;
+  background:var(--bg);color:var(--tp);font-family:var(--sans);
+  padding:74px 74px;display:flex;flex-direction:column;
+}
+.slide>*{position:relative;z-index:1}
+
+.top{display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--cond);font-weight:700;font-size:26px;letter-spacing:.04em;color:var(--tm)}
+.top .pg{font-family:var(--cond);font-weight:700;color:var(--ts)}
+.top .pg b{color:var(--gold)}
+
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--cond);font-weight:600;font-size:24px;letter-spacing:.03em;color:var(--ts);padding-top:30px;
+  border-top:1px solid var(--bord)}
+.swipe{display:flex;align-items:center;gap:12px}
+.swipe .a{color:var(--gold);font-size:32px;font-weight:800}
+
+/* ============ COVER ============ */
+.cover-bg{position:absolute;inset:0;
+  background:
+    linear-gradient(180deg, rgba(11,18,32,0.35) 0%, rgba(11,18,32,0.55) 45%, rgba(11,18,32,0.96) 82%),
+    radial-gradient(120% 90% at 20% 0%, #1c2d52 0%, #0b1220 60%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px, transparent 2px, transparent 26px);
+  background-size:cover;background-position:center;}
+.cover-bg.photo{
+  background:
+    linear-gradient(180deg, rgba(11,18,32,0.35) 0%, rgba(11,18,32,0.55) 45%, rgba(11,18,32,0.96) 82%),
+    var(--cover-photo) center/cover no-repeat;}
+.photo-note{position:absolute;top:74px;right:74px;font-family:var(--cond);font-size:20px;color:rgba(245,247,250,0.32);
+  letter-spacing:.08em;text-transform:uppercase;z-index:1}
+.cover-body{margin-top:auto;display:flex;flex-direction:column;gap:26px;padding-bottom:20px}
+.plate{display:inline-flex;align-self:flex-start;background:var(--gold);color:var(--goldD);
+  font-family:var(--condx);font-weight:800;font-size:56px;letter-spacing:.01em;
+  padding:10px 26px;text-transform:uppercase}
+h1{font-family:var(--condx);font-weight:800;font-size:calc(104px * var(--fs-scale));line-height:.96;letter-spacing:-.01em;text-transform:uppercase}
+
+/* ============ BODY / CARDS ============ */
+.body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:calc(54px * var(--fs-scale));padding:20px 0}
+.block{display:flex;flex-direction:column;gap:calc(22px * var(--fs-scale))}
+.kicker{font-family:var(--cond);font-weight:700;font-size:calc(28px * var(--fs-scale));letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:calc(6px * var(--fs-scale))}
+.h-row{display:flex;align-items:center;gap:20px}
+.mark{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--cond);font-weight:800;font-size:34px;flex:0 0 auto}
+.mark.no{background:rgba(220,38,38,0.16);color:#ef4444;border:2px solid rgba(239,68,68,0.5)}
+.mark.yes{background:rgba(224,172,28,0.14);color:var(--gold);border:2px solid rgba(224,172,28,0.5)}
+.mark.neutral{background:rgba(255,255,255,0.08);color:var(--tp);border:2px solid var(--bord2)}
+h2{font-family:var(--condx);font-weight:800;font-size:calc(60px * var(--fs-scale));letter-spacing:.005em;text-transform:uppercase;line-height:1}
+.item{display:flex;gap:22px;padding-left:2px}
+.num{width:44px;height:44px;border-radius:10px;background:var(--navy2);color:var(--tp);flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;font-family:var(--cond);font-weight:700;font-size:26px}
+.item .txt{padding-top:2px}
+.item .sub{font-family:var(--cond);font-weight:700;font-size:calc(34px * var(--fs-scale));color:var(--tp);margin-bottom:6px}
+.item .desc{font-size:calc(30px * var(--fs-scale));line-height:1.4;color:var(--tm);font-weight:400;max-width:840px}
+
+/* ============ SUMMARY ============ */
+.summary-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:calc(34px * var(--fs-scale))}
+.summary-body h2{color:var(--tp)}
+.summary-body .lead{font-size:calc(38px * var(--fs-scale));line-height:1.4;color:var(--tm);max-width:900px}
+.cta{display:flex;flex-direction:column;gap:16px;margin-top:calc(20px * var(--fs-scale))}
+.cta .badge{display:inline-flex;align-self:flex-start;background:var(--gold);color:var(--goldD);
+  font-family:var(--condx);font-weight:800;font-size:calc(40px * var(--fs-scale));letter-spacing:.01em;
+  padding:12px 28px;text-transform:uppercase}
+.cta .word{font-family:var(--cond);font-weight:700;font-size:calc(30px * var(--fs-scale));color:var(--tp)}
+.cta .word b{color:var(--gold)}
+</style>
+
+{# ---- SLIDE 1: COVER ---- #}
+<section class="slide cover" data-order="1">
+  {% if cover_photo_uri %}
+  <div class="cover-bg photo" style="--cover-photo:url('{{ cover_photo_uri }}')"></div>
+  {% else %}
+  <div class="cover-bg"></div>
+  <span class="photo-note">[фото клиента]</span>
+  {% endif %}
+  <div class="top"><span>{{ client.ig_handle }}</span></div>
+  <div class="cover-body">
+    {% if cover.plate %}<span class="plate">{{ cover.plate }}</span>{% endif %}
+    <h1>{{ cover.title }}</h1>
+  </div>
+  <div class="foot"><span>{{ client.ig_handle }}</span>
+    <span class="swipe"><span class="a">→</span>{{ tokens.swipe_label or 'листай' }}</span></div>
+</section>
+
+{# ---- CONTENT / COMPARE / SUMMARY SLIDES ---- #}
+{% for card in cards %}
+{% set page = loop.index + 1 %}
+{% include '_' + card.type + '.html.j2' %}
+{% endfor %}

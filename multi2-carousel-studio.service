@@ -1,0 +1,19 @@
+[Unit]
+Description=Carousel Studio — multitenant Instagram carousel generator (FastAPI, :8055)
+After=network.target
+
+[Service]
+Type=simple
+User=office
+WorkingDirectory=/home/office/multi2/apps/carousel-studio/server
+EnvironmentFile=/home/office/multi2/apps/carousel-studio/.env
+# HARD INVARIANT (plan §2, BLOCKER B2): exactly ONE worker process.
+# The asyncio job queue and the Playwright concurrency=1 lock live in memory
+# of a single process. Never add --workers N or switch to gunicorn prefork —
+# multiple workers => parallel Chromium renders + polling desync across workers.
+ExecStart=/home/office/multi2/apps/carousel-studio/.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8055 --workers 1
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,74 @@
+[
+  {
+    "family": "Fira Sans Condensed",
+    "weight": 600,
+    "unicode_range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116",
+    "file": "fira-sans-condensed-600-cyrillic-4b3e06.woff2"
+  },
+  {
+    "family": "Fira Sans Condensed",
+    "weight": 600,
+    "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+    "file": "fira-sans-condensed-600-latin-1208d0.woff2"
+  },
+  {
+    "family": "Fira Sans Condensed",
+    "weight": 700,
+    "unicode_range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116",
+    "file": "fira-sans-condensed-700-cyrillic-1271b9.woff2"
+  },
+  {
+    "family": "Fira Sans Condensed",
+    "weight": 700,
+    "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+    "file": "fira-sans-condensed-700-latin-8fe7e2.woff2"
+  },
+  {
+    "family": "Fira Sans Condensed",
+    "weight": 800,
+    "unicode_range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116",
+    "file": "fira-sans-condensed-800-cyrillic-c0c126.woff2"
+  },
+  {
+    "family": "Fira Sans Condensed",
+    "weight": 800,
+    "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+    "file": "fira-sans-condensed-800-latin-b3d96b.woff2"
+  },
+  {
+    "family": "Fira Sans Extra Condensed",
+    "weight": 800,
+    "unicode_range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116",
+    "file": "fira-sans-extra-condensed-800-cyrillic-dcc2d4.woff2"
+  },
+  {
+    "family": "Fira Sans Extra Condensed",
+    "weight": 800,
+    "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+    "file": "fira-sans-extra-condensed-800-latin-87b774.woff2"
+  },
+  {
+    "family": "PT Sans",
+    "weight": 400,
+    "unicode_range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116",
+    "file": "pt-sans-400-cyrillic-5e33b4.woff2"
+  },
+  {
+    "family": "PT Sans",
+    "weight": 400,
+    "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+    "file": "pt-sans-400-latin-177d0d.woff2"
+  },
+  {
+    "family": "PT Sans",
+    "weight": 700,
+    "unicode_range": "U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116",
+    "file": "pt-sans-700-cyrillic-3335d3.woff2"
+  },
+  {
+    "family": "PT Sans",
+    "weight": 700,
+    "unicode_range": "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD",
+    "file": "pt-sans-700-latin-75ce67.woff2"
+  }
+]

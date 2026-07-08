@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+aiosqlite
+jinja2
+passlib[bcrypt]
+bcrypt<4.1
+playwright
+pillow
+python-multipart
+pytest
+pytest-asyncio
+httpx

@@ -1,0 +1,24 @@
+<section class="slide" data-order="{{ page }}">
+  <div class="top"><span>{{ client.ig_handle }}</span>
+    <span class="pg"><b>{{ '%02d' % page }}</b> / {{ '%02d' % total }}</span></div>
+  <div class="body">
+    <div class="block">
+      {% if card.kicker %}<div class="kicker">{{ card.kicker }}</div>{% endif %}
+      <div class="h-row">
+        {% if card.marker %}<span class="mark {{ card.marker }}">{{ {'yes':'✓','no':'✕','neutral':'•'}[card.marker] }}</span>{% endif %}
+        <h2>{{ card.title }}</h2>
+      </div>
+      {% for it in card['items'] %}
+      <div class="item">
+        <span class="num">{{ it.num }}</span>
+        <div class="txt">
+          {% if it.sub %}<div class="sub">{{ it.sub }}</div>{% endif %}
+          {% if it.desc %}<div class="desc">{{ it.desc }}</div>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="foot"><span>{{ client.ig_handle }}</span>
+    <span class="swipe"><span class="a">→</span>{{ tokens.swipe_label or 'листай' }}</span></div>
+</section>

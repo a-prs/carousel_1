@@ -1,0 +1,16 @@
+<section class="slide" data-order="{{ page }}">
+  <div class="top"><span>{{ client.ig_handle }}</span>
+    <span class="pg"><b>{{ '%02d' % page }}</b> / {{ '%02d' % total }}</span></div>
+  <div class="summary-body">
+    <h2>{{ card.title or 'Итог' }}</h2>
+    {% if card.body %}<div class="lead">{{ card.body }}</div>{% endif %}
+    {% if card.cta and card.cta.present %}
+    <div class="cta">
+      {% if card.cta.text %}<span class="badge">{{ card.cta.text }}</span>{% endif %}
+      {% if card.cta.word %}<span class="word">Кодовое слово: <b>{{ card.cta.word }}</b></span>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+  <div class="foot"><span>{{ client.ig_handle }}</span>
+    <span class="swipe"><span class="a">→</span>{{ tokens.swipe_label or 'листай' }}</span></div>
+</section>

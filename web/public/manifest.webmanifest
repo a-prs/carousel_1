@@ -1,0 +1,15 @@
+{
+  "name": "Carousel Studio",
+  "short_name": "Carousel",
+  "description": "Генератор Instagram-каруселей",
+  "start_url": "/carousel/app",
+  "scope": "/carousel/app",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "/carousel/app/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/carousel/app/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/carousel/app/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
